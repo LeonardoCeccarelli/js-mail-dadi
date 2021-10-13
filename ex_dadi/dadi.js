@@ -1,30 +1,37 @@
-// Creo generatore di numeri casuali da 1 a 6 per giocatore e computer
-const numeroRandomGiocatore = Math.random()
+// Identifico il bottone per lanciare i dadi
+const btnSubmit = document.getElementById("btn_submit")
 
-const numeroRandomComputer = Math.random()
+btnSubmit.addEventListener("click", function () {
 
-// Assegno il numero casuale a entrambi
-const numeroGiocatore = Math.ceil(numeroRandomGiocatore * 6)
+    // Creo generatore di numeri casuali da 1 a 6 per giocatore e computer
+    const numeroRandomGiocatore = Math.random()
 
-console.log("Numero giocatore = " + numeroGiocatore);
+    const numeroRandomComputer = Math.random()
 
-const numeroComputer = Math.ceil(numeroRandomComputer * 6)
+    // Assegno il numero casuale a entrambi
+    const numeroGiocatore = Math.ceil(numeroRandomGiocatore * 6)
 
-console.log("Numero Computer = " + numeroComputer);
+    alert("Numero giocatore = " + numeroGiocatore)
 
-// stabilisco variabile vincitore vuota
+    const numeroComputer = Math.ceil(numeroRandomComputer * 6)
 
-let vincitore = ""
+    alert("Numero computer = " + numeroComputer)
 
-// Creo la condizione che stabilisce chi tra i due ha vinto o se c'è un pareggio
+    // stabilisco variabile vincitore vuota
 
-if (numeroGiocatore > numeroComputer) {
-    vincitore = "Giocatore"
-    console.log(vincitore + " hai vinto");
-} else if (numeroComputer > numeroGiocatore) {
-    vincitore = "Computer"
-    console.log(vincitore + " hai vinto");
-} else {
-    console.log("E' un pareggio, ritirare il dado");
-}
+    let vincitore = ""
 
+    // Creo la condizione che stabilisce chi tra i due ha vinto o se c'è un pareggio
+
+    if (numeroGiocatore > numeroComputer) {
+        vincitore = "Giocatore"
+        alert(`${vincitore} hai vinto`)
+    } else if (numeroComputer > numeroGiocatore) {
+        vincitore = "Computer"
+        alert(`${vincitore} hai vinto`)
+    } else {
+        vincitore = "E' un pareggio, ritirare il dado"
+        alert(`E' un pareggio, ritirare il dado`)
+    }
+
+})
