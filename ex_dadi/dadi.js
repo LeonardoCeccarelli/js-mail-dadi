@@ -1,7 +1,19 @@
 // Identifico il bottone per lanciare i dadi
-const btnSubmit = document.getElementById("btn_submit")
+const btn = document.getElementById("button")
 
-btnSubmit.addEventListener("click", function () {
+// Identifico le caselle dove inserire i risultati
+const casellaGiocatore = document.getElementById("numero_giocatore")
+
+const casellaComputer = document.getElementById("numero_computer")
+
+const casellaVincitore = document.getElementById("risultato_vincitore")
+
+btn.addEventListener("click", function () {
+
+    // Parto azzerando le caselle
+    casellaGiocatore.innerHTML = ""
+    casellaComputer.innerHTML = ""
+    casellaVincitore.innerHTML = ""
 
     // Creo generatore di numeri casuali da 1 a 6 per giocatore e computer
     const numeroRandomGiocatore = Math.random()
@@ -11,11 +23,11 @@ btnSubmit.addEventListener("click", function () {
     // Assegno il numero casuale a entrambi
     const numeroGiocatore = Math.ceil(numeroRandomGiocatore * 6)
 
-    alert("Numero giocatore = " + numeroGiocatore)
+    casellaGiocatore.textContent += numeroGiocatore
 
     const numeroComputer = Math.ceil(numeroRandomComputer * 6)
 
-    alert("Numero computer = " + numeroComputer)
+    casellaComputer.textContent += numeroComputer
 
     // stabilisco variabile vincitore vuota
 
@@ -25,13 +37,16 @@ btnSubmit.addEventListener("click", function () {
 
     if (numeroGiocatore > numeroComputer) {
         vincitore = "Giocatore"
-        alert(`${vincitore} hai vinto`)
+        // alert(`${vincitore} hai vinto!`)
+        casellaVincitore.innerHTML += `<h4 class="text-center text-light"><span class="c_green">${vincitore}</span> ha vinto</h4>`
     } else if (numeroComputer > numeroGiocatore) {
         vincitore = "Computer"
-        alert(`${vincitore} hai vinto`)
+        // alert(`${vincitore} hai vinto!`)
+        casellaVincitore.innerHTML += `<h4 class="text-center text-light"><span class="c_green">${vincitore}</span> ha vinto</h4>`
     } else {
         vincitore = "E' un pareggio, ritirare il dado"
-        alert(`E' un pareggio, ritirare il dado`)
+        // alert(vincitore)
+        casellaVincitore.innerHTML += `<h4 class="text-center text-light">${vincitore}</h4>`
     }
 
 })
